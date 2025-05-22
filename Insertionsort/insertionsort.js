@@ -12,6 +12,7 @@ function insertionSort(arr)
             index--;
         }
         arr[index+1] = ins;
+        console.log(arr)
     }
 }
 
