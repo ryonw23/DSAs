@@ -1,3 +1,4 @@
+//Run in Node.js
 function bubbleSort(arr)
 {
     let swapped = true;
@@ -5,7 +6,7 @@ function bubbleSort(arr)
     while(swapped)
     {
         swapped = false;
-        for(let i =0; i<length;i++)
+        for(let i=0; i<length;i++)
         {
             if(arr[i]>arr[i+1])
             {
