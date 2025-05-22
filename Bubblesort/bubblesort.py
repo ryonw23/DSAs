@@ -9,6 +9,7 @@ def bubble_sort(arr):
                 arr[i] = arr[i+1]
                 arr[i+1] = store
                 swapped = True
+                print(arr)
         length -= 1
 
 input_string = input("Enter array (comma or space separated): ")
