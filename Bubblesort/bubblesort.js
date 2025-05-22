@@ -14,6 +14,7 @@ function bubbleSort(arr)
                 arr[i] = arr[i+1];
                 arr[i+1] = store;
                 swapped = true;
+                console.log(arr);
             }
         }
         length--;
