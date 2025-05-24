@@ -69,6 +69,39 @@ function radixSort(arr)
     return arr;
 }
 
+function bucketSort(arr)
+{
+    if(arr.length <= 1)
+    {
+        return arr;
+    }
+    
+    let max = findMax(arr);
+    let buckets = [];
+    let sorted = [];
+    for(let i=0; i<arr.length; i++)
+    {
+        buckets[i] = [];
+    }
+    for(let i=0; i<arr.length; i++)
+    {
+        buckets[Math.floor(arr[i]*arr.length/(max+1))].push(arr[i]);
+    }
+    console.log("Buckets:", buckets);
+    for(let i=0; i<arr.length; i++)
+    {
+        if(buckets[i].length > 0 && buckets[i].length < arr.length)
+        {
+            sorted = sorted.concat(bucketSort(buckets[i]));
+        }
+        else
+        {
+            sorted = sorted.concat(buckets[i]);
+        }
+    }
+    return sorted;
+}
+
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -82,7 +115,9 @@ readline.question('Enter array (comma or space separated): ', (input) =>
 
     // console.log('Sorted array:', countingSort(arr));
 
-    console.log('Sorted array:',radixSort(arr));
+    // console.log('Sorted array:',radixSort(arr));
+    
+    console.log('Sorted array:',bucketSort(arr));
 
     readline.close();
 });
