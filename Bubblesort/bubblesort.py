@@ -1,3 +1,8 @@
+def swap(arr,a,b):
+    store = arr[a]
+    arr[a] = arr[b]
+    arr[b] = store
+
 def bubble_sort(arr):
     swapped = True
     length = len(arr) - 1
@@ -5,9 +10,7 @@ def bubble_sort(arr):
         swapped = False
         for i in range(length):
             if(arr[i]>arr[i+1]):
-                store = arr[i]
-                arr[i] = arr[i+1]
-                arr[i+1] = store
+                swap(arr,i,i+1)
                 swapped = True
                 print(arr)
         length -= 1
