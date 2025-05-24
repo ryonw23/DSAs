@@ -1,4 +1,11 @@
 //Run in Node.js
+function swap(arr,a,b)
+{
+    let store = arr[a];
+    arr[a] = arr[b];
+    arr[b] = store;
+}
+
 function minPos(arr,start,end)
 {
     let min = arr[start];
@@ -20,9 +27,7 @@ function selectionSort(arr)
     for(let i=0; i<length; i++)
     {
         let posMin = minPos(arr,i,length);
-        let store = arr[posMin];
-        arr[posMin] = arr[i];
-        arr[i] = store;
+        swap(arr,posMin,i);
         console.log(arr);
     }
 }
