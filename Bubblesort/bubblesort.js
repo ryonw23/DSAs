@@ -1,4 +1,11 @@
 //Run in Node.js
+function swap(arr,a,b)
+{
+    let store = arr[a];
+    arr[a] = arr[b];
+    arr[b] = store;
+}
+
 function bubbleSort(arr)
 {
     let swapped = true;
@@ -10,9 +17,7 @@ function bubbleSort(arr)
         {
             if(arr[i]>arr[i+1])
             {
-                let store = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = store;
+                swap(arr,i,i+1);
                 swapped = true;
                 console.log(arr);
             }
