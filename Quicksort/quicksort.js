@@ -1,4 +1,11 @@
 //Run in Node.js
+function swap(arr,a,b)
+{
+    let store = arr[a];
+    arr[a] = arr[b];
+    arr[b] = store;
+}
+
 function partition(arr,low,high)
 {
     let pivot = arr[high]; //Can be low, mid or high --> if mid then, mid = Math.floor((high+low)/2)
@@ -10,9 +17,7 @@ function partition(arr,low,high)
         {
             console.log(arr[i], " is less than", pivot);
             index++;
-            let store = arr[i];
-            arr[i] = arr[index];
-            arr[index] = store;
+            swap(arr,i,index);
             console.log("Place smaller than pivot to left: ", arr);
             console.log("Pivot pos: ", pivotPos);
         }
