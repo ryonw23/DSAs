@@ -5,7 +5,7 @@ def swap(arr,a,b):
 
 def partition(arr,low,high):
     pivot = arr[high] #Can be low, mid or high --> if mid then, mid = Math.floor((high+low)/2)
-    pivotPos = high
+    pivot_pos = high
     index = low-1
     
     for i in range(low,high):
@@ -14,11 +14,9 @@ def partition(arr,low,high):
             index += 1
             swap(arr,i,index)
             print("Place smaller than pivot to left: ", arr)
-            print("Pivot pos: ", pivotPos)
+            print("Pivot pos: ", pivot_pos)
             
-    store = arr[index+1]
-    arr[index+1] = arr[pivotPos]
-    arr[pivotPos] = store
+    swap(arr,index+1,pivot_pos)
     print("Place pivot in position: ", arr)
     print("Pivot pos: ", index+1)
     return index+1
