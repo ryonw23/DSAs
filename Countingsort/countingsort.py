@@ -49,9 +49,28 @@ def radix_sort(arr):
             index += 1
     return arr
 
+def bucket_sort(arr): #Will generally only work when values are evenly distributed and not clumped, else infinite recursion. Can be solved with introducing sorting algo instead of recursion
+    n = len(arr)
+    if(len(arr) <= 1):
+        return arr
+    
+    max = find_max(arr)
+    buckets = []
+    sorted = []
+    for i in range(n):
+        buckets.append([])
+    for i in range(n):
+        buckets[math.floor(arr[i]*n/(max+1))].append(arr[i])
+    
+    print("Buckets:", buckets)
+    for i in range(n):
+        if(len(buckets[i]) > 1 and len(buckets[i]) < len(arr)):
+            sorted += bucket_sort(buckets[i])
+        else:
+            sorted += buckets[i]
+    return sorted
 
 input_string = input("Enter array (comma or space separated): ")
 arr = [int(x) for x in input_string.replace(","," ").split()]
 print("Original array: ", arr)
-radix_sort(arr)
-print("Sorted array: ", arr)
+print("Sorted array: ", bucket_sort(arr))
