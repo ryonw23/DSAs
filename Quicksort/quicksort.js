@@ -22,9 +22,7 @@ function partition(arr,low,high)
             console.log("Pivot pos: ", pivotPos);
         }
     }
-    let store = arr[index+1];
-    arr[index+1] = arr[pivotPos];
-    arr[pivotPos] = store;
+    swap(arr,index+1,pivotPos);
     console.log("Place pivot in position: ", arr);
     console.log("Pivot pos: ", index+1);
     return index+1;
